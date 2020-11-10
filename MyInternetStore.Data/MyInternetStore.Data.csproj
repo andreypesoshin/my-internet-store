@@ -1,11 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MyInternetStore.Data\MyInternetStore.Data.csproj" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.10" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\MyInternetStore.Domain\MyInternetStore.Domain.csproj" />
     </ItemGroup>
 
