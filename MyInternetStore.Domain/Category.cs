@@ -17,7 +17,5 @@ namespace MyInternetStore.Domain
             Id = id;
             Name = name;
         }
-        
-        public IList<Product> Products { get; protected set; } = new List<Product>();
     }
 }

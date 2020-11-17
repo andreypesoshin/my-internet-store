@@ -32,8 +32,6 @@ namespace MyInternetStore.Domain
 
         public string ImageUrl { get; protected set; }
 
-        public IList<Category> Categories { get; protected set; }
-
         public void UpdatePrice(decimal priceRub)
         {
             PriceRub = priceRub;

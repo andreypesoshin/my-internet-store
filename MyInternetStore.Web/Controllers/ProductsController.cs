@@ -22,25 +22,9 @@ namespace MyInternetStore.Web.Controllers
 
         public IActionResult Index()
         {
-            using (var context = new MyAppContext())
-            {
-                var product2 = context.Products.Find(1);
-                
-            }
-            
-            /*
-            var demoObject = new GenericDemo<decimal>();
-            demoObject.Price = 10m;
-            
-            var demoObject2 = new GenericDemo<string>();
-            demoObject2.Price = "20 руб";
-            */
-
             var category = new Category(0, "Игры для ПК");
             var product = new Product(0, "The Witcher", "The Witcher Description", 1500, 20,
                 "https://www.ferra.ru/thumb/860x0/filters:quality(75):no_upscale()/imgs/2019/12/30/10/3719514/ab2ecc65a1bdc3db8933e4d945cf6107956185e5.jpg");
-
-            category.Products.Add(product);
 
             return View();
         }
