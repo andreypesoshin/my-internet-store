@@ -31,6 +31,8 @@ namespace MyInternetStore.Domain
         public decimal PriceUsd { get; protected set; }
 
         public string ImageUrl { get; protected set; }
+        
+        public virtual Category Category { get; protected set; }
 
         public void UpdatePrice(decimal priceRub)
         {

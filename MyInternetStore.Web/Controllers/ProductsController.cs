@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyInternetStore.Data;
@@ -14,19 +11,19 @@ namespace MyInternetStore.Web.Controllers
     public class ProductsController : Controller
     {
         private readonly ILogger<ProductsController> _logger;
+        private readonly MyAppContext _context;
 
-        public ProductsController(ILogger<ProductsController> logger)
+        public ProductsController(ILogger<ProductsController> logger, MyAppContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            var category = new Category(0, "Игры для ПК");
-            var product = new Product(0, "The Witcher", "The Witcher Description", 1500, 20,
-                "https://www.ferra.ru/thumb/860x0/filters:quality(75):no_upscale()/imgs/2019/12/30/10/3719514/ab2ecc65a1bdc3db8933e4d945cf6107956185e5.jpg");
-
-            return View();
+            var products = _context.Products.ToList();
+            
+            return View(products);
         }
 
         public IActionResult Privacy()
