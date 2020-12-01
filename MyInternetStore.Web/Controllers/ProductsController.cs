@@ -25,6 +25,15 @@ namespace MyInternetStore.Web.Controllers
             
             return View(products);
         }
+        
+        // POST /Products/Buy Body: name=123&price=234&... 
+        public IActionResult Buy(Product product)
+        {
+            _context.Products.Add(product);
+            _context.SaveChanges();
+            
+            return View();
+        }
 
         public IActionResult Privacy()
         {
