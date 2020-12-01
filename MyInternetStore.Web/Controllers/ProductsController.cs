@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyInternetStore.Data;
@@ -26,9 +27,18 @@ namespace MyInternetStore.Web.Controllers
             return View(products);
         }
         
+        [Authorize]
+        // MODEL BINDING
+        // DTO = Data Transfer Object
+        // AutoMapper https://automapper.org
+        
         // POST /Products/Buy Body: name=123&price=234&... 
-        public IActionResult Buy(Product product)
+        public IActionResult Buy(ProductDto productDto)
         {
+            var product = _mapper.Map<Product>(productDto);
+            
+            // productDto => product
+            
             _context.Products.Add(product);
             _context.SaveChanges();
             
@@ -45,5 +55,12 @@ namespace MyInternetStore.Web.Controllers
         {
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
+    }
+
+    public class ProductDto
+    {
+        public string Name { get; set; }
+        
+        public string Price { get; set; }
     }
 }

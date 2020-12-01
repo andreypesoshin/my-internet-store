@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MyInternetStore.Domain;
 
 namespace MyInternetStore.Data
 {
-    public class MyAppContext : DbContext
+    public class MyAppContext : IdentityDbContext
     {
         public DbSet<Product> Products { get; set; }
 
