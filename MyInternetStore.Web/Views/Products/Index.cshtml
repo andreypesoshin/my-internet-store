@@ -1,17 +1,10 @@
-﻿@model List<Product>
-
-@using MyInternetStore.Domain
+﻿@model List<MyInternetStore.Web.ViewModels.ProductViewModel>
 
 @{
     ViewData["Title"] = "Каталог";
 }
 
-<div class="text-center">
-    <h1 class="display-4">@ViewData["Title"]</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
 @foreach (var product in Model)
 {
-    Html.RenderPartial("_ProductCard", product);
+    await Html.RenderPartialAsync("_ProductCard", product);
 }

@@ -7,6 +7,8 @@ namespace MyInternetStore.Domain
         public int Id { get; protected set; }
         
         public string Name { get; protected set; }
+        
+        public virtual List<Product> Products { get; protected set; } = new List<Product>(); 
 
         protected Category()
         {

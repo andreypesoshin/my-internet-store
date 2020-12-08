@@ -2,6 +2,11 @@
 
 namespace MyInternetStore.Domain
 {
+    public sealed class ProductProxy324234234234 : Product
+    {
+        // Id = ... , Name = ...
+    }
+    
     public class Product
     {
         public const int UsdRate = 76;
@@ -32,7 +37,7 @@ namespace MyInternetStore.Domain
 
         public string ImageUrl { get; protected set; }
         
-        public virtual Category Category { get; protected set; }
+        public Category Category { get; protected set; }
 
         public void UpdatePrice(decimal priceRub)
         {

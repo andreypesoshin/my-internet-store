@@ -1,9 +1,7 @@
-@model MyInternetStore.Domain.Product
+@model MyInternetStore.Web.ViewModels.ProductViewModel
 
 <div>
-    <p>@Model.Id</p>
-    <p>@Model.Category</p>
-    <p>@Model.Description</p>
-    <p>@Model.PriceRub</p>
-    <p>@Model.PriceUsd</p>
+    <p>@Model.Name</p>
+    <p>@Model.Price</p>
+    <p><img src="@Model.ImageUrl" alt="Alt text" width="300" height="200"></p>
 </div>
